@@ -11,7 +11,7 @@ For the ingestion, I built a [GCP cloud function](pipelines/cloud-functions/invo
 
 The dbt pipeline follows a pattern of `source -> staging -> marts -> reporting`.  While the `marts` layer wasn't necessary for this exercise, I included it for best practice as dimension & fact tables for invoices and payments would be needed in a real data warehouse.
 
-`staging` contains a table [`stg_accounting_invoices`](models/staging/accounting/stg_accounting_invoices.sql) that simply dedupes the json records based on a) most recent ingestion and b) most recent last updated timestamp.  This feeds two tables in `marts` - [`dim_accounting_invoices`](models/marts/accounting/dim_accounting_invoices.sql) and [`fct_accounting_invoice_payments`](models/marts/accounting/fct_accounting_invoice_payments.sql).  Those two models then feed a daily history table, [`fct_accounting_invoice_balance_history`](models/marts/accounting/dim_accounting_invoices.sql) which has a record for each invoice, each day beginning when it was created, and the amount outstanding & status of the invoice on that day.  
+`staging` contains a table [`stg_accounting_invoices`](models/staging/accounting/stg_accounting_invoices.sql) that simply dedupes the json records based on a) most recent ingestion and b) most recent last updated timestamp.  This feeds two tables in `marts` - [`dim_accounting_invoices`](models/marts/accounting/dim_accounting_invoices.sql), which strips the nested payments from invoices, and [`fct_accounting_invoice_payments`](models/marts/accounting/fct_accounting_invoice_payments.sql) which unnests the payments and retains some details from their associated invoice.  Those two models then feed a daily history table, [`fct_accounting_invoice_balance_history`](models/marts/accounting/fct_accounting_invoice_balance_history.sql) which has a record for each invoice, each day beginning when it was created, and the amount outstanding & status of the invoice on that day.  
 
 Finally, the output for the exercise is created in [`rpt_accounts_recievable_history`](models/reporting/accounting/rpt_accounts_receivable_history.sql).  It is based on  `fct_accounting_invoice_balance_history` and makes the final transformations: 
 - Categorize the invoices based on their AR date bucket as of the report date
@@ -27,7 +27,7 @@ Selecting the report is as simple as doing a `select * where report_date = {give
 ![Results](example_output.PNG)
 
 
-The project & cloud function are fully functional and running on a google cloud project I created for the exercise.  Happy to make the project temporarily public if desired.  
+The project & cloud function are fully functional and running on a google cloud project I created for the exercise.  Happy to share the project with you if desired.  
 
 <details><summary>Output of dbt build</summary>
 
