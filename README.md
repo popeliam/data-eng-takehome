@@ -7,7 +7,7 @@ For the ingestion, I built a [GCP cloud function](pipelines/cloud-functions/invo
 > `invoices_v1_2022_01_01_01_01_01`\
 > `invoices_v1_2022_01_01_01_02_01`
 
-, a select statement from `ampla-takehome.landing_invoices.invoices_v1_*` will union both tables together, with a `_TABLE_SUFFIX` value of `2022_01_01_01_01_01` and `2022_01_01_01_02_01` respectively.  This table suffix can be used in combination with the last modified timestamp to dedupe records.  It also allows for schema changes - if there's ever a new schema we need to injest, we could write a union in [`stg_accounting_invoices`](models/staging/accounting/stg_accounting_invoices.sql) that handles the different schemas and retains the staging table's functionality across versions.
+, a select statement from `ampla-takehome.landing_invoices.invoices_v1_*` will union both tables together, with a `_TABLE_SUFFIX` value of `2022_01_01_01_01_01` and `2022_01_01_01_02_01` respectively.  This table suffix can be used in combination with the last modified timestamp to dedupe records.  It also allows for schema changes - if there's ever a new schema we need to injest, we could load the new versions into tables named `invoices_v2_*` and apply logic in [`stg_accounting_invoices`](models/staging/accounting/stg_accounting_invoices.sql) to handle the different schemas and retains the staging table's function as the single source.
 
 The dbt pipeline follows a pattern of `source -> staging -> marts -> reporting`.  While the `marts` layer wasn't necessary for this exercise, I included it for best practice as dimension & fact tables for invoices and payments would be needed in a real data warehouse.
 

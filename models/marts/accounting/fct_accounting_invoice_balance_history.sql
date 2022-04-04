@@ -27,7 +27,7 @@ with invoices as (
             order by payment_date asc, payment_id asc
         ) as paid_to_date
         , coalesce(
-                lead(payment_date) over (
+                lead(payment_date - 1) over ( -- minus one because on that date we will want to join the next payment
                     partition by invoice_id 
                     order by payment_date asc, payment_id asc -- if there are multiple payments on the same date, ensure the ranking will always return the same invoice across dbt runs
                 )
@@ -53,7 +53,7 @@ with invoices as (
         on invoices.invoice_issue_date < dates.report_date
     left join invoice_payment_history
         on invoice_payment_history.invoice_id = invoices.invoice_id
-        and dates.report_date between invoice_payment_history.from_date and invoice_payment_history.to_date - 1 -- minus one because on "to_date" we will want to join the new payment
+        and dates.report_date between invoice_payment_history.from_date and invoice_payment_history.to_date
 )
 
 -- Calculate the status & amount outstanding based on the payments made to date
