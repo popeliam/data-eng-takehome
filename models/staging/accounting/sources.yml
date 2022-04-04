@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: accounting
+    database: "ampla-takehome"
+    schema: "landing_accounting"
+    tables:
+      - name: invoices_v1
+        identifier: "invoices_v1_*"

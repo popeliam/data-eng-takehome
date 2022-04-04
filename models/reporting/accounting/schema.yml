@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: rpt_accounts_receivable_history
+    columns:
+      - name: customer_name || report_date
+        tests:
+          - unique
+          - not_null

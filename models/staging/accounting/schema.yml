@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: stg_accounting_invoices
+    description: |
+      Staging table for invoices.  Selects from a wildcard table identifier from a source 
+      that loads json data into tables suffixed with the load timestamp.  Dedupes by a) the load timestamp
+      from the table name suffix and b) the modifiedDate of the record
+    columns:
+      - name: invoice_id
+        tests:
+          - unique
+          - not_null

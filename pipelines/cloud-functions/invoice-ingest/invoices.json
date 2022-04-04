@@ -1,0 +1,152 @@
+{
+    "results": [
+        {
+            "id": "70854819-5109-44A8-88E0-DB4CE8A4A6E7",
+            "invoiceNumber": "INV01202",
+            "customerRef": {
+                "id": "F330D645-1B25-4609-9A32-B0655D9D9646",
+                "companyName": "Trader Joe's"
+            },
+            "issueDate": "2021-05-04T00:00:00",
+            "dueDate": "2021-06-24T00:00:00",
+            "modifiedDate": "2021-05-06T00:00:00",
+            "sourceModifiedDate": "2021-05-04T00:00:00",
+            "paidOnDate": null,
+            "totalAmount": 500.0,
+            "amountDue": 500.0,
+            "status": "Submitted",
+            "paymentAllocations": []
+        },
+        {
+            "id": "70854819-5109-44A8-88E0-DB4CE8A4A6E7",
+            "invoiceNumber": "INV01202",
+            "customerRef": {
+                "id": "F330D645-1B25-4609-9A32-B0655D9D9646",
+                "companyName": "Trader Joe's"
+            },
+            "issueDate": "2021-05-04T00:00:00",
+            "dueDate": "2021-06-24T00:00:00",
+            "modifiedDate": "2021-07-01T00:00:00",
+            "sourceModifiedDate": "2021-06-30T00:00:00",
+            "paidOnDate": "2021-06-30T00:00:00",
+            "totalAmount": 500.0,
+            "amountDue": 0.0,
+            "status": "Paid",
+            "paymentAllocations": [
+	      {
+                "payment": {
+                  "id": "CC011072-B1B2-437E-9B11-C3F0C7460FDC",
+                  "paidOnDate": "2021-06-30T00:00:00",
+                  "totalAmount": 500
+                }
+             }
+            ]
+        },
+        {
+            "id": "9B2F252A-1C1F-4542-8A36-4A9FAF26F24C",
+            "invoiceNumber": "INV01200",
+            "customerRef": {
+                "id": "05719A05-1C28-48BD-9B41-69ED658C8194",
+                "companyName": "Whole Foods"
+            },
+            "issueDate": "2021-05-04T00:00:00",
+            "dueDate": "2021-06-08T00:00:00",
+            "modifiedDate": "2021-07-08T00:00:00",
+            "sourceModifiedDate": "2021-07-04T00:00:00",
+            "paidOnDate": "2021-06-18T00:00:00",
+            "totalAmount": 400.0,
+            "amountDue": 0.0,
+            "status": "Paid",
+            "paymentAllocations": [
+              {
+                "payment": {
+                  "id": "7C2A37E4-6602-4432-875E-67CA45D302A2",
+                  "paidOnDate": "2021-06-18T00:00:00",
+                  "totalAmount": 400
+                }
+             }
+            ]
+        },
+        {
+            "id": "1612310C-0662-4977-ACF8-12217BADD643",
+            "invoiceNumber": "INV01206",
+            "customerRef": {
+                "id": "F330D645-1B25-4609-9A32-B0655D9D9646",
+                "companyName": "Trader Joe's"
+            },
+            "issueDate": "2021-07-04T00:00:00",
+            "dueDate": "2021-07-08T00:00:00",
+            "modifiedDate": "2021-07-08T00:00:00",
+            "sourceModifiedDate": "2021-07-04T00:00:00",
+            "paidOnDate": null,
+            "totalAmount": 900.0,
+            "amountDue": 900.0,
+            "status": "Submitted",
+            "paymentAllocations": []
+        },
+        {
+            "id": "1612310C-0662-4977-ACF8-12217BADD643",
+            "invoiceNumber": "INV01206",
+            "customerRef": {
+                "id": "F330D645-1B25-4609-9A32-B0655D9D9646",
+                "companyName": "Trader Joe's"
+            },
+            "issueDate": "2021-07-04T00:00:00",
+            "dueDate": "2021-07-08T00:00:00",
+            "modifiedDate": "2021-07-17T00:00:00",
+            "sourceModifiedDate": "2021-07-16T00:00:00",
+            "paidOnDate": "2021-07-16T00:00:00",
+            "totalAmount": 900.0,
+            "amountDue": 0.0,
+            "status": "Paid",
+            "paymentAllocations": [
+              {
+                "payment": {
+                  "id": "737EA525-35FF-412E-803B-A0187A1EFFC1",
+                  "paidOnDate": "2021-07-06T00:00:00",
+                  "totalAmount": 300
+                }
+             },
+             {
+                "payment": {
+                  "id": "E5B9677C-13F3-4CDE-B50F-DD56E5305E0C",
+                  "paidOnDate": "2021-07-08T00:00:00",
+                  "totalAmount": 300
+                }
+             },
+             {
+                "payment": {
+                  "id": "71EC9623-35E1-40CE-B9C8-A883837FD3A5",
+                  "paidOnDate": "2021-07-16T00:00:00",
+                  "totalAmount": 300
+                }
+             }
+            ]
+        },
+        {
+            "id": "9BF0EC65-4BCF-41D0-9022-CA03155DCDF9",
+            "invoiceNumber": "INV01204",
+            "customerRef": {
+                "id": "05719A05-1C28-48BD-9B41-69ED658C8194",
+                "companyName": "Whole Foods"
+            },
+            "issueDate": "2021-06-04T00:00:00",
+            "dueDate": "2021-07-10T00:00:00",
+            "modifiedDate": "2021-07-18T00:00:00",
+            "sourceModifiedDate": "2021-07-14T00:00:00",
+            "paidOnDate": null,
+            "totalAmount": 600.0,
+            "amountDue": 300.0,
+            "status": "PartiallyPaid",
+            "paymentAllocations": [
+              {
+                "payment": {
+                  "id": "2B64B8D1-3113-4BB6-A87D-60D391DE81F3",
+                  "paidOnDate": "2021-06-10T00:00:00",
+                  "totalAmount": 300
+                }
+             }
+            ]
+        }
+    ]
+}

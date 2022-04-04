@@ -1,0 +1,30 @@
+name: 'ampla_takehome'
+version: '1.0.0'
+config-version: 2
+
+profile: 'ampla_takehome'
+
+model-paths: ["models"]
+macro-paths: ["macros"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  ampla_takehome:
+    reporting:
+      +materialized: table
+      accounting:
+        +schema: rpt_accounting
+
+    marts:
+      +materialized: table
+      accounting:
+        +schema: accounting
+        
+    staging:
+      +materialized: view
+      accounting:
+        +schema: stg_accounting    

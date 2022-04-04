@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: dim_accounting_invoices
+    columns:
+      - name: invoice_id
+        tests:
+          - unique
+          - not_null
+  - name: fct_accounting_invoice_payments
+    columns:
+      - name: payment_id
+        tests:
+          - unique
+          - not_null
+      - name: invoice_id
+        tests: 
+          - not_null
+          - relationships:
+              to: ref('dim_accounting_invoices')
+              field: invoice_id
+  - name: fct_accounting_invoice_balance_history
+    description: |
+      A daily record of each invoice, beginning the day after it was issued.  Includes total amount, amount paid to date, 
+      amount outstanding, and payment status of the invoice.
+    columns:
+      - name: invoice_id || report_date
+        tests:
+          - unique
+          - not_null
